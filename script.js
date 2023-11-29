@@ -26,7 +26,7 @@ const init = () => {
   player1.classList.remove("player--active");
   player0.classList.add("player--active");
 };
-init()
+init();
 
 // Function of Switch player
 const switchPlayer = () => {
@@ -68,7 +68,7 @@ hold.addEventListener("click", () => {
     document.querySelector(`#score--${activePlayer}`).textContent =
       score[activePlayer];
 
-    // If score >= 100
+    // If score >= 50
     if (score[activePlayer] >= 50) {
       playing = false;
       document
@@ -78,6 +78,8 @@ hold.addEventListener("click", () => {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove("player--active");
+      
+      document.querySelector(".dice").classList.add("hidden");
     } else {
       //Switch to another player
       switchPlayer();
